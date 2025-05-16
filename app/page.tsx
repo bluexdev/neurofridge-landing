@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ModeToggle } from "@/components/mode-toggle"
+import { AuthButtons } from "@/components/auth/auth-buttons"
 import Image from "next/image"
 import Link from "next/link"
 import {
@@ -119,9 +120,7 @@ export default function HomePage() {
 
             <div className="hidden md:flex items-center space-x-4">
               <ModeToggle />
-              <Button size="sm" className="rounded-full">
-                Solicitar Demo
-              </Button>
+              <AuthButtons />
             </div>
 
             {/* Mobile Navigation Toggle */}
@@ -151,9 +150,16 @@ export default function HomePage() {
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-2">
-                <Button size="sm" className="w-full rounded-full">
-                  Solicitar Demo
+              <div className="pt-2 px-3 flex flex-col space-y-2">
+                <Button variant="outline" size="sm" className="w-full rounded-full" asChild>
+                  <Link href="/login" onClick={() => setIsMenuOpen(false)}>
+                    Iniciar Sesión
+                  </Link>
+                </Button>
+                <Button size="sm" className="w-full rounded-full" asChild>
+                  <Link href="/register" onClick={() => setIsMenuOpen(false)}>
+                    Registrarse
+                  </Link>
                 </Button>
               </div>
             </div>
